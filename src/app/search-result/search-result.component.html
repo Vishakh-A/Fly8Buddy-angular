@@ -1,0 +1,40 @@
+
+
+<main role="main" class="inner cover text-left">
+  <div *ngIf="objArray.length>0 then showData else noData"></div>
+
+  <ng-template #showData >
+    <h2 class="text-center mt-2">Searched Flight Details</h2>
+    
+    <div class="listContainer mt-5" >
+      <ul  *ngFor="let item of objArray;let in ='index'">
+        <li class=""  >
+         Airline <span>{{item.flightName }}</span> 
+         Date of Journey <span>{{date}}</span> 
+         Base Price <span>{{item.price}}</span>
+         <button class="bookbtn" (click)="boockTicket(item)">Book Ticket</button>
+         <!-- <a [routerLink]="'/fillForm'" class="bookbtn">Book Ticket</a> -->
+        </li>
+      </ul>
+     
+    
+  </div>
+
+  </ng-template>
+
+  <ng-template #noData>
+    <div >
+      <h2 class="cover-heading  mt-2 ml-5">No Flights Available</h2>
+     
+    </div>
+
+  </ng-template>
+  <p class="lead ml-5">
+    <a [routerLink]="'/search'" class="btn btn-lg btn-outline-dark">Search once again</a>
+  </p>
+   
+  
+  </main>
+
+  
+
